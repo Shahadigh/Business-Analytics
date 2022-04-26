@@ -1,0 +1,83 @@
+/* Query 1 - for the first insight */
+
+
+SELECT Customer.City, Sum(Invoice.total) as Spending 
+FROM Customer 
+JOIN Invoice 
+On Customer.CustomerId = Invoice.CustomerId
+GROUP BY Customer.City
+ORDER BY spending DESC
+LIMIT 10
+
+
+
+
+/* Query 2 - for the second insight */
+
+SELECT Employee.EmployeeID, Employee.FirstName, Employee.LastName , count(invoice.InvoiceId) as invoices
+FROM Employee
+JOIN Customer
+On Employee. EmployeeID = Customer.SupportRepId
+JOIN Invoice
+On Customer.CustomerId = Invoice.CustomerId
+GROUP BY Employee. EmployeeID
+
+
+
+/* Query 3 - for the third insight */
+
+SELECT Artist.* , count(album.albumId) as NumberOfAlbums
+FROM Artist 
+JOIN Album
+ON Artist.ArtistId = Album.ArtistId
+GROUP BY Artist.ArtistId
+ORDER BY NumberOfAlbums DESC
+LIMIT 5
+
+
+
+
+/* Query 4 - for the fourth insight */
+
+
+SELECT Customer.Country, Sum(Invoice.total) as Spending 
+FROM Customer 
+JOIN Invoice 
+On Customer.CustomerId = Invoice.CustomerId
+GROUP BY Customer.Country
+ORDER BY spending DESC
+LIMIT 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
